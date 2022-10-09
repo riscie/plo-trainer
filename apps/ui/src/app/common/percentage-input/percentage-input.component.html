@@ -1,0 +1,13 @@
+<div class="bar-container">
+  <div class="bar">
+    <div *ngFor="let segmentNo of segments"
+         class="segment"
+         (mouseover)="setActiveSegment(segmentNo)"
+         (mouseleave)="setActiveSegment(-1)"
+         [style.background-color]="activeSegment >= segmentNo ? percentageToHsl(activeSegment / segments.length, 0, 120) : 'white'"
+    >
+    </div>
+  </div>
+  <div><button *ngIf="getPercentageToDisplay()" class="btn btn-secondary disabled mt-1" style="width: 100%">{{getPercentageToDisplay()}}</button></div>
+</div>
+
